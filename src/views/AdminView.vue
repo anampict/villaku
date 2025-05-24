@@ -45,8 +45,8 @@
         <table class="w-full text-left text-sm">
           <thead class="bg-gray-100 text-gray-600 uppercase text-xs">
             <tr>
-              <th class="px-6 py-4">Nama</th>
-              <th class="px-6 py-4">Deskripsi</th>
+              <th class="px-6 py-4">Nama villa</th>
+              <th class="px-6 py-4">Deskripsi villa</th>
               <th class="px-6 py-4">Harga</th>
               <th class="px-6 py-4 text-center">Aksi</th>
             </tr>
@@ -62,7 +62,9 @@
               </td>
             </tr>
             <tr v-if="kamarList.length === 0">
-              <td colspan="4" class="text-center text-gray-500 py-6">Belum ada data villa</td>
+              <td colspan="4" class="text-center text-gray-500 py-6">
+                Belum ada villa yang ditambahkan
+              </td>
             </tr>
           </tbody>
         </table>
@@ -74,6 +76,7 @@
 <script setup>
 import { reactive, ref, onMounted } from "vue";
 
+// import api
 const endpoint = "https://backend-villaku.anampict.workers.dev/api/villa";
 
 const kamarList = ref([]);
