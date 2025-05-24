@@ -1,7 +1,6 @@
 <template>
   <div class="bg-white text-gray-800 font-inter">
     <!-- Navbar -->
-    <!-- Navbar -->
     <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50 transition-all">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <div class="text-xl font-bold text-gray-900">Villaku</div>
@@ -23,7 +22,7 @@
           Selamat Datang di VillakuApp
         </h1>
         <p class="text-lg text-gray-600 mb-8 animate-fade-in-delayed">
-          Temukan villa yang nyaman dan sesuai kebutuhan Anda.
+          Temukan villa yang nyaman dan murah sesuai kebutuhan Anda.
         </p>
         <button
           class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl transition shadow-lg animate-bounce"
