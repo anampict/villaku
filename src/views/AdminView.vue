@@ -148,15 +148,67 @@ onMounted(fetchKamar);
 
 <style scoped>
 .input {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  background-color: #fff;
+  transition: box-shadow 0.2s;
 }
+.input:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+  border-color: #3b82f6;
+}
+
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-semibold transition;
+  background-color: #2563eb;
+  color: #fff;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  border: none;
 }
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
 .btn-secondary {
-  @apply bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md font-semibold transition;
+  background-color: #d1d5db;
+  color: #1f2937;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  border: none;
 }
+.btn-secondary:hover {
+  background-color: #9ca3af;
+}
+
 .btn-danger {
-  @apply bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-semibold transition;
+  background-color: #dc2626;
+  color: #fff;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  border: none;
+}
+.btn-danger:hover {
+  background-color: #b91c1c;
 }
 </style>
