@@ -47,9 +47,10 @@ import { onMounted, ref } from "vue";
 const villas = ref([]);
 const loading = ref(true);
 
+// tempat untuk menjalankan aksi ketika komponen sudah aktif dan tampil
 onMounted(async () => {
   try {
-    const res = await fetch("https://backend-villaku.anampict.workers.dev/api/villa");
+    const res = await fetch("https://backend-villaku.anampict.workers.dev/api/villa"); //mengambil semua data villa
     if (!res.ok) throw new Error("Gagal mengambil data");
     villas.value = await res.json();
   } catch (err) {

@@ -74,21 +74,22 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from "vue";
+import { onMounted, reactive, ref } from "vue";
 
 // import api
 const endpoint = "https://backend-villaku.anampict.workers.dev/api/villa";
 
-const kamarList = ref([]);
-const editing = ref(false);
-const editingId = ref(null);
+const kamarList = ref([]); //Membuat array kosong yang akan menyimpan daftar kamar
+const editing = ref(false); //Menyimpan status apakah user sedang mengedit data atau tidak
+const editingId = ref(null); //Menyimpan ID data yang sedang diedit
 
 const form = reactive({
-  nama: "",
-  deskripsi: "",
-  harga: "",
+  nama: "", // Field input untuk nama villa
+  deskripsi: "", // Field input untuk deskripsi villa
+  harga: "", /// Field input untuk harga villa
 });
 
+// function untuk mengambil data kamar dari API
 async function fetchKamar() {
   try {
     const res = await fetch(endpoint);
@@ -98,17 +99,20 @@ async function fetchKamar() {
   }
 }
 
+//Fungsinya adalah untuk menyimpan data ke server (baik menambah data baru atau mengedit data yang sudah ada)
 async function handleSubmit() {
   try {
     const method = editing.value ? "PUT" : "POST";
     const url = editing.value ? `${endpoint}/${editingId.value}` : endpoint;
 
+    //mengirim request ke server
     await fetch(url, {
       method,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
 
+    //setelah di submit akan mereset form dan mengambil data terbaru
     resetForm();
     fetchKamar();
   } catch (err) {
@@ -116,6 +120,7 @@ async function handleSubmit() {
   }
 }
 
+// Function untuk mengisi form dengan data yang akan diedit
 function editKamar(villa) {
   form.nama = villa.nama;
   form.deskripsi = villa.deskripsi;
@@ -124,6 +129,7 @@ function editKamar(villa) {
   editingId.value = villa.id;
 }
 
+// Function untuk menghapus data kamar berdasarkan ID
 async function deleteKamar(id) {
   if (confirm("Yakin hapus villa ini?")) {
     try {
@@ -135,6 +141,7 @@ async function deleteKamar(id) {
   }
 }
 
+//function untuk mereset form input dan mengembalikan ke tambah data
 function resetForm() {
   form.nama = "";
   form.deskripsi = "";
@@ -143,7 +150,7 @@ function resetForm() {
   editingId.value = null;
 }
 
-onMounted(fetchKamar);
+onMounted(fetchKamar); // cara untuk menjalankan function fatch saat komponen Vue pertama kali ditampilkan
 </script>
 
 <style scoped>
